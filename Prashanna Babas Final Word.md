@@ -64,7 +64,7 @@ This project uses several important image preprocessing techniques to improve th
 - **What:** Converts a color image (RGB or RGBA) into a grayscale image (single channel).
 - **Why:** Simplifies the image and reduces the amount of data to process, making it easier to focus on the text.
 - **How to Present:**  
-  - Tell the teachers: “This step reduces the image to just brightness values, removing color distractions. It’s the foundation for all further processing and is especially important for Nepali documents, which may be scanned in color but only need the text.”
+  - Tell the teachers: “Grayscale conversion isn’t just a simplification — it’s a necessary first step that reduces noise from irrelevant color data. Since we are only interested in the textual content, especially in scanned Nepali documents that might be colorful or poorly printed, this step helps isolate what matters: the contrast between text and background. It ensures consistency across different types of documents and lays a clean foundation for precise OCR.”
 
 ---
 
@@ -73,7 +73,7 @@ This project uses several important image preprocessing techniques to improve th
 - **What:** Turns the grayscale image into a black-and-white (binary) image by calculating a local threshold for each small region.
 - **Why:** Works well even if the lighting is uneven, making the text stand out more clearly.
 - **How to Present:**  
-  - Explain: “Instead of using a single threshold for the whole image, this method adapts to different lighting in different parts of the document. This is very useful for old or poorly scanned Nepali documents, where some areas might be lighter or darker.”
+  - Tell the teachers: “We used adaptive Gaussian thresholding instead of a global method because Nepali scanned documents often have uneven lighting, faded ink, or shadows. This technique looks at each small region of the image and calculates the best threshold locally, making even poorly lit or aged documents readable. It’s particularly effective for Devanagari script, where clarity of each stroke matters.”
 
 ---
 
@@ -82,7 +82,7 @@ This project uses several important image preprocessing techniques to improve th
 - **What:** Shrinks the white areas in the binary image.
 - **Why:** Removes small white noise and separates connected text or shapes.
 - **How to Present:**  
-  - Say: “Erosion helps clean up small specks or noise that could confuse the OCR. For Nepali, where characters can be close together, this step helps prevent them from merging.”
+  - Tell the teachers: “Erosion helps in removing tiny white noise and separating characters that are too close. This is critical for Devanagari script, where characters can get visually merged during scanning. Applying erosion helps the OCR engine distinguish individual letters and prevents wrong character grouping, which directly improves recognition accuracy.”
 
 ---
 
@@ -91,7 +91,7 @@ This project uses several important image preprocessing techniques to improve th
 - **What:** Expands the white areas in the image.
 - **Why:** Fills in small gaps and fixes broken parts of the text.
 - **How to Present:**  
-  - Mention: “After erosion, some parts of the text might become too thin or broken. Dilation restores the thickness and continuity of the characters, which is important for the detailed shapes in Nepali script.”
+  - Tell the teachers: “After erosion, characters can become thinner or slightly broken — especially in handwritten or low-resolution scans. Dilation restores the natural thickness of the characters without reintroducing noise. This step ensures that important strokes in Devanagari (like matras and vertical lines) are preserved clearly, which significantly impacts OCR accuracy.”
 
 ---
 
@@ -120,5 +120,5 @@ def preprocess_image(image):
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyNjk3MTA4M119
+eyJoaXN0b3J5IjpbMTg2MTQxNDQ5MywxMDI2OTcxMDgzXX0=
 -->
