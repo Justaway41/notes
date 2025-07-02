@@ -100,8 +100,7 @@ Yet, solving Nepali OCR is **incredibly valuable** — it can unlock huge collec
 
 ---
 
-Let me know if you want to add diagrams, citations, or references to this!
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwNTU2MTkzNV19
+eyJoaXN0b3J5IjpbMTQ4NzM4NTM0NF19
 -->
